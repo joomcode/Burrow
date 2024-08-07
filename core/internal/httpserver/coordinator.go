@@ -57,6 +57,7 @@ type Coordinator struct {
 func (hc *Coordinator) Configure() {
 	hc.Log.Info("configuring")
 	hc.router = httprouter.New()
+	hc.router.UseRawPath = true
 
 	// If no HTTP server configured, add a default HTTP server that listens on a random port
 	servers := viper.GetStringMap("httpserver")
